@@ -1,0 +1,25 @@
+body {
+  text-align: center;
+  font-family: "JetBrains Mono";
+}
+button {
+  user-select: none;
+  outline: none;
+  font-family: "JetBrains Mono";
+  background-color: rgb(221, 217, 1);
+  border: none;
+}
+button:hover {
+  background-color: rgb(160, 157, 0);
+}
+.heads {
+  font-size: xx-large;
+}
+.mainButton {
+  font-size: 4em;
+  width: 240px;
+  height: 80px;
+  position: absolute;
+  bottom: 60px;
+  right: calc(50% - 120px);
+}
