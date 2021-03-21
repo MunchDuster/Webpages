@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+    Select Voice: <select id='voiceList'></select> <br><br>
+
+    <input id='txtInput' value="hi" /> <br><br>    
+    
+    <input type="range" value="50"id="pitch" >Pitch<br>
+    <input type="range" value="100"id="vol">Volume<br>
+    <input type="range" value="9.090909"id="rate">Rate<br>
+    <button id='btnSpeak'>Speak!</button>
+    <script>
+        const txtInput = document.querySelector('#txtInput');
+        const voiceList = document.querySelector('#voiceList');
+        const btnSpeak = document.querySelector('#btnSpeak');
+        const pitchSpeak = document.querySelector('#pitch');
+        const volSpeak = document.querySelector('#vol');
+        const rateSpeak = document.querySelector('#rate');
+        const synth = window.speechSynthesis;
+        var voice;
+        
+        btnSpeak.addEventListener('click', ()=> {
+            
+            var toSpeak = new SpeechSynthesisUtterance(txtInput.value);
+            //toSpeak.voice = synth.getVoices()[5];
+            //toSpeak.lang = 'en';
+            toSpeak.pitch = pitchSpeak.value/50;//from 0 to 2
+            toSpeak.volume = volSpeak.value/100;//from 0 to 1
+            toSpeak.rate = 0.1 + rateSpeak.value/(10 + 1/9.9);// from 0.1 to 10
+            //console.log(toSpeak);
+            synth.cancel();
+            synth.speak(toSpeak);
+            console.log(synth.pending);
+        });
+       /*
+       var voices = [];
+        PopulateVoices();
+        if(speechSynthesis !== undefined){
+            speechSynthesis.onvoiceschanged = PopulateVoices;
+        }
+
+        btnSpeak.addEventListener('click', ()=> {
+            var toSpeak = new SpeechSynthesisUtterance(txtInput.value);
+            var selectedVoiceName = voiceList.selectedOptions[0].getAttribute('data-name');
+            voices.forEach((voice)=>{
+                if(voice.name === selectedVoiceName){
+                    toSpeak.voice = voice;
+                }
+            });
+            synth.speak(toSpeak);
+        });
+
+        function PopulateVoices(){
+            voices = synth.getVoices();
+            var selectedIndex = voiceList.selectedIndex < 0 ? 0 : voiceList.selectedIndex;
+            voiceList.innerHTML = '';
+            voices.forEach((voice)=>{
+                var listItem = document.createElement('option');
+                listItem.textContent = voice.name;
+                listItem.setAttribute('data-lang', voice.lang);
+                listItem.setAttribute('data-name', voice.name);
+                voiceList.appendChild(listItem);
+            });
+
+            voiceList.selectedIndex = selectedIndex;
+        }
+       */
+    </script>
+</body>
+</html>
