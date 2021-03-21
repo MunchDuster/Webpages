@@ -1,0 +1,18 @@
+{
+  "name": "bibleverses",
+  "version": "1.0.0",
+  "description": "der bible",
+  "main": "server.js",
+  "dependencies": {
+    "bible-scraper": "^1.0.1",
+    "express": "^4.17.1",
+    "socket.io": "^4.0.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "author": "mal",
+  "license": "ISC"
+}

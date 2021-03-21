@@ -96,7 +96,20 @@ app.get("/", async function (req, res) {
     var user = joinUser(socket.id);
     var curverse = await niv.verse(getPoint(user));
     socket.emit("recieve first", curverse);
-
+	  socket.on("last", async () => {
+		  user.verse -= 1;
+      curverse = await niv.verse(getPoint(user));
+      if (curverse.content == "") {
+        user.verse = 1;
+        user.chapter -= 1;
+        curverse = await niv.verse(getPoint(user));
+      }
+      if (curverse.content == "") {
+        user.chapter = 1;
+        user.book -= 1;
+        curverse = await niv.verse(getPoint(user));
+      }
+	   });
     socket.on("next", async () => {
       user.verse += 1;
       curverse = await niv.verse(getPoint(user));

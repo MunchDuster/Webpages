@@ -14,6 +14,7 @@ button:hover {
 }
 .heads {
   font-size: xx-large;
+  display:inline-block;
 }
 .mainButton {
   font-size: 4em;
