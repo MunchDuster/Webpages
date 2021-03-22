@@ -19,12 +19,9 @@
         var btnSpeak = document.querySelector('#btnSpeak');
         var synth = window.speechSynthesis;
         var voices = [];
-
+		console.log(synth.getVoices());
         PopulateVoices();
-        if(speechSynthesis !== undefined){
-            speechSynthesis.onvoiceschanged = PopulateVoices;
-        }
-
+        
         btnSpeak.addEventListener('click', ()=> {
             var toSpeak = new SpeechSynthesisUtterance(txtInput.value);
             var selectedVoiceName = voiceList.selectedOptions[0].getAttribute('data-name');
@@ -39,6 +36,7 @@
 
         function PopulateVoices(){
             voices = synth.getVoices();
+			console.log(voices);
             var selectedIndex = voiceList.selectedIndex < 0 ? 0 : voiceList.selectedIndex;
             voiceList.innerHTML = '';
             voices.forEach((voice)=>{
