@@ -1,0 +1,92 @@
+<html>
+
+  <head>
+    <title>To do List</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+    <style>
+      .list {
+        padding: 2px;
+        width: calc(50% - 4px);
+        background-color: #EEEEEE;
+        float: right;
+        border-bottom: 2px solid black;
+        border-top: 2px solid black;
+      }
+
+      .inputer {
+        background-color: #888888;
+				color:white;
+				
+				spellcheck:false;
+        height: 20px;
+      }
+
+      input[type="checkbox"]:unchecked {
+        -webkit-appearance: none;
+        background-color: #fefefe;
+        border: 1px solid #bbbbbb;
+
+        padding: 8px;
+        border-radius: 20px;
+        display: inline-block;
+        position: relative;
+        bottom: -7.5px;
+      }
+input[type="checkbox"]:checked {
+        -webkit-appearance: none;
+        background-color: #999999;
+        border: 1px solid #bbbbbb;
+
+        padding: 8px;
+        border-radius: 20px;
+        display: inline-block;
+        position: relative;
+        bottom: -7.5px;
+      }
+    </style>
+  </head>
+
+  <body align="center" style="font-family: 'Roboto', sans-serif;">
+    <h1>
+      To do list
+    </h1>
+
+    <div class="list">
+      <u>The editor</u>
+      <div>
+        <div class="inputer">
+          Write stuff here
+        </div>
+        <input type="checkbox" />numbering<br>
+        <input type="checkbox" />coloring<br>
+        <input type="checkbox" />monyanyo<br>
+
+      </div>
+    </div>
+    <div class="list">
+      <u>This page</u>
+      <div>
+        <div class="inputer">
+          Write stuff here
+        </div>
+        <input type="checkbox" />checklists<br>
+        <input type="checkbox" />tick off<br>
+      </div>
+    </div>
+		<script>
+		document.onkeyup = function(e) {
+  if (e.which == 77) {
+    alert("M key was pressed");
+  } else if (e.ctrlKey && e.which == 66) {
+    alert("Ctrl + B shortcut combination was pressed");
+  } else if (e.ctrlKey && e.altKey && e.which == 89) {
+    alert("Ctrl + Alt + Y shortcut combination was pressed");
+  } else if (e.ctrlKey && e.altKey && e.shiftKey && e.which == 85) {
+    alert("Ctrl + Alt + Shift + U shortcut combination was pressed");
+  }
+};
+		</script>
+  </body>
+
+</html>
