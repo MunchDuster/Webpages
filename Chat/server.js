@@ -1,5 +1,4 @@
-const password = 'jeff';
-
+const password = '';
 const express = require("express");
 const app = express();
 const http = require("http").createServer(app);
@@ -58,6 +57,9 @@ io.on("connection", function (socket) {
 		console.log(joinedMessage);
 		socket.emit("ketchup", msgs);
 		socket.broadcast.emit("receive chat", joinedMessage);
+	});
+	socket.on("changed name", function (newname) {
+		msgs.forEach();
 	});
 	socket.on("chat msg", function (msg, dateTime, user) {
 		var msg = addMsg(msg, msgType.USER, dateTime, user);

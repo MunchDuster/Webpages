@@ -4,7 +4,7 @@ var msgType = {
   SYSTEM: 1,
 };
 
-var userName = prompt("user name");
+var userName;
 /*
 if (localStorage.getItem('user name')) {
 	userName = localStorage.getItem('user name');
@@ -56,9 +56,7 @@ function getDateTime() {
   };
 }
 function getPassword(pass) {
-	document
-    .getElementById("loading")
-		.parentNode.removeChild(document.getElementById("loading"));
+	
 	var enpass = prompt("password");
 	while (!hasSignedIn && enpass != pass) {
 		enpass = prompt("password");
@@ -111,7 +109,6 @@ function makeSystemMessage(msg, dateTime) {
 
 socket.on('room pass', function (pass) {
 	getPassword(pass);
-	
 });
 socket.on('ketchup', function (msgs) {
 	msgs.forEach((data) => {
