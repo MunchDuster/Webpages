@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+  <body>
+    <canvas
+      id="myCanvas"
+      width="200"
+      height="100"
+      style="border: 1px solid #c3c3c3"
+    >
+      Your browser does not support the canvas element. </canvas
+    ><br />
+    <label id="offlabel" for="xOff">OFFSET</label
+    ><input type="range" id="xOff" /><br />
+    <label id="densitylabel" for="density">DENSITY</label
+    ><input type="range" id="density" />
+    <script>
+      const pixels = 100;
+      var xOff = 10;
+      var density = 1;
+
+      const canvas = document.getElementById("myCanvas");
+      const ctx = canvas.getContext("2d");
+      var lastX;
+      var lastY;
+      function draw() {
+        lastX = xOff;
+        lastY = func(xOff);
+        ctx.clearRect(0, 0, canvas.clientWidth, canvas.clientHeight);
+        for (var x = 0; x < pixels; x++) {
+          ctx.moveTo(lastX, lastY);
+          var newX = x * density;
+          var newY = func(x * density + xOff * density);
+          ctx.lineTo(newX, newY);
+          ctx.stroke();
+          lastX = newX;
+          lastY = newY;
+        }
+      }
+      draw();
+
+      function func(x) {
+        return x;
+      }
+
+      const densitySlider = document.getElementById("density");
+      densitySlider.oninput = function () {
+        density = densitySlider.value;
+        draw();
+      };
+
+      const xoffSlider = document.getElementById("xOff");
+      xoffSlider.oninput = function () {
+        xOff = 50 - densitySlider.value;
+        draw();
+      };
+    </script>
+  </body>
+</html>
