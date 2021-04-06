@@ -20,7 +20,9 @@ socket.on("recieve", function (verse) {
   console.log("verse recieved");
   reference.innerText = verse.reference;
   curVerse = verse;
-  say(curVerse.content);
+	if (isTalking) { 
+		say(curVerse.content); 
+	}
 });
 speakbtn.addEventListener("click", function () {
   isTalking = !isTalking;

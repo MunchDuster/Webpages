@@ -10,7 +10,7 @@
     />
   </head>
   <body>
-    <div class="heads" id="ref"></div>
+    <button onclick="socket.emit('last');">Last</button><div class="heads" id="ref"></div><button onclick="socket.emit('next');">Next</button><br>
     <div id="txt"></div>
     <button class="mainButton" id="speak">SPEAK</button>
     <script src="/socket.io/socket.io.js"></script>
